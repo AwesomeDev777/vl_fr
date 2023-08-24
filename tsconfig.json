@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@blueupcode/*": ["modules/*"]
+    },
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "noUncheckedIndexedAccess": true,
+    "jsx": "preserve",
+    "baseUrl": "./src/",
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/modules/quill/index.d.ts",
+    "src/modules/slick/index.d.ts",
+    "src/modules/sweetalert2/index.d.ts"
+  ],
+  "exclude": ["node_modules"]
+}

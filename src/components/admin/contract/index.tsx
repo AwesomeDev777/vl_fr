@@ -7,7 +7,7 @@ import Pagination from 'utils/Pagination'
 import {Admin_Contract_GetAll, Admin_Contract_Delete, Admin_Contract_Type_GetAll} from 'utils/adminUrl'
 import { parseCookies } from 'nookies'
 import { ApexOptions } from 'apexcharts';
-import Chart from '@blueupcode/apexcharts';
+// import Chart from '@blueupcode/apexcharts';
 const isEmpty = require('utils/is-empty')
 
 const ContractComponent = () => {
@@ -187,8 +187,10 @@ const ContractComponent = () => {
                 palette: 'palette1',
             }))
         }, [props.mode])
+
+        return <div />
     
-        return <Chart type="bar" width="100%" height={350} options={options} series={props.series} />
+        // return <Chart type="bar" width="100%" height={350} options={options} series={props.series} />
     }
 
     return(

@@ -160,7 +160,7 @@ const Widget27ComponentChart: React.FC<Widget27ComponentChartProps> = (props) =>
 		}))
 	}, [theme])
 
-	return <Chart type="area" className="my-3" width="100%" height={300} options={options} series={props.series} />
+	return <></> // <Chart type="area" className="my-3" width="100%" height={300} options={options} series={props.series} />
 }
 
 interface Widget27ComponentChartProps {

@@ -83,7 +83,8 @@ const Widget30ComponentChart: React.FC<Widget30ComponentChartProps> = (props) =>
 		}))
 	}, [theme])
 
-	return <Chart type="bar" width="100%" height={350} options={options} series={props.series} />
+	return <></>
+	// return <></> // <Chart type="bar" width="100%" height={350} options={options} series={props.series} />
 }
 
 interface Widget30ComponentChartProps {

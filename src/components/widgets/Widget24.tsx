@@ -263,7 +263,8 @@ const Widget24ComponentChart: React.FC<Widget24ComponentChartProps> = (props) =>
 		}))
 	}, [theme])
 
-	return <Chart type="area" width="100%" height={50} options={options} series={series} />
+	return <></>
+	// return <></> // <Chart type="area" width="100%" height={50} options={options} series={series} />
 }
 
 interface Widget24ComponentChartProps {

@@ -153,7 +153,8 @@ const Widget22ComponentChart: React.FC<Widget22ComponentChartProps> = (props) =>
 		}))
 	}, [theme])
 
-	return <Chart type="area" width="100%" height={300} options={options} series={props.series} />
+	return <></>
+	// return <></> // <Chart type="area" width="100%" height={300} options={options} series={props.series} />
 }
 
 interface Widget22ComponentChartProps {

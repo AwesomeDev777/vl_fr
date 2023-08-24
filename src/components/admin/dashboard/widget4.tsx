@@ -94,16 +94,18 @@ const Widget25ComponentChart: React.FC<Widget25ComponentChartProps> = (props) =>
 		}))
 	}, [theme])
 
-	return (
-		<Chart
-			type="donut"
-			width={300}
-			height="auto"
-			options={options}
-			series={props.series}
-			className="d-flex justify-content-center"
-		/>
-	)
+	return <></>
+
+	// return (
+	// 	<Chart
+	// 		type="donut"
+	// 		width={300}
+	// 		height="auto"
+	// 		options={options}
+	// 		series={props.series}
+	// 		className="d-flex justify-content-center"
+	// 	/>
+	// )
 }
 
 interface Widget25ComponentChartProps {

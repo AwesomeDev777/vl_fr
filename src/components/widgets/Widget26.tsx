@@ -123,7 +123,7 @@ const Widget26ComponentChart: React.FC<Widget26ComponentChartProps> = (props) =>
 		}))
 	}, [theme])
 
-	return <Chart type="area" width="100%" height={300} options={options} series={props.series} />
+	return <></> // <Chart type="area" width="100%" height={300} options={options} series={props.series} />
 }
 
 interface Widget26ComponentChartProps {

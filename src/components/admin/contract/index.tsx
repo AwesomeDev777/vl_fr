@@ -190,7 +190,7 @@ const ContractComponent = () => {
 
         return <div />
     
-        // return <Chart type="bar" width="100%" height={350} options={options} series={props.series} />
+        // return <></> // <Chart type="bar" width="100%" height={350} options={options} series={props.series} />
     }
 
     return(

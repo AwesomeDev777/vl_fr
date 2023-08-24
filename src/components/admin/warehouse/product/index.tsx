@@ -44,20 +44,20 @@ const Products: FC<IProducts> = ({ warehouseID, warehouseName }) => {
     setOpenAddModal(false);
   };
 
-  const handleChangeSort = (s) => {
+  const handleChangeSort = (s: any) => {
     setSortKey(s);
   };
 
-  const handleChangeFilter = (f) => {
+  const handleChangeFilter = (f: any) => {
     setFilter(f);
   };
 
-  const handleChangePageSize = (e) => {
+  const handleChangePageSize = (e: any) => {
     setPageSize(e.target.value);
   };
 
   const handleGetProducts = async () => {
-    const resp = await apiCall(
+    const resp: any = await apiCall(
       `${Admin_Product_GetAll}/${activeLinkNumber}/${pageSize}/warehouse:${warehouseID}/filterKey:${filter.key}/filterValue:${filter.keyword}/sortKey:${sortKey.key}/sort:${sortKey.sort}`,
       "GET",
       {}

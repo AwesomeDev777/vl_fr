@@ -6,7 +6,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import apiCall from "utils/apiCall";
 import { Admin_Good_ADD, Admin_Warehouse_GetAll } from "utils/adminUrl";
 
-const AddGoodModal = ({ open, onClose, onAddSuccess }) => {
+const AddGoodModal = ({ open, onClose, onAddSuccess }: any) => {
   const [newGood, setNewGood] = useState<IGood>({
     vendorName: "",
     deliveryDate: new Date().toISOString(),
@@ -20,16 +20,16 @@ const AddGoodModal = ({ open, onClose, onAddSuccess }) => {
     quantity: 0,
     totalAmount: 0
   });
-  const [warehouses, setWarehouses] = useState([]);
+  const [warehouses, setWarehouses] = useState<any[]>([]);
 
   useEffect(() => {
     (async function () {
-      const data = await apiCall(Admin_Warehouse_GetAll, "GET", {});
+      const data: any = await apiCall(Admin_Warehouse_GetAll, "GET", {});
       setWarehouses(data.all);
     })();
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setNewGood({
       ...newGood,
       [e.target.name]: e.target.value

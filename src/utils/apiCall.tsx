@@ -5,7 +5,7 @@ import isEmpty from "./is-empty";
 const cookies = parseCookies();
 const headers = { Authorization: cookies.admintoken };
 
-export default function apiCall(url: string, method: string, data) {
+export default function apiCall(url: string, method: string, data: any) {
   return new Promise((resolve, reject) => {
     axios({
       url,

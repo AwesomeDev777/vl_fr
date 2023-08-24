@@ -6,7 +6,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import apiCall from "utils/apiCall";
 import { Admin_Product_ADD } from "utils/adminUrl";
 
-const AddProductModal = ({ open, onClose, warehouseID, onAddSuccess }) => {
+const AddProductModal = ({ open, onClose, warehouseID, onAddSuccess }: any) => {
   const [newProduct, setNewProduct] = useState<IProduct>({
     code: "",
     bin_location: "",
@@ -15,7 +15,7 @@ const AddProductModal = ({ open, onClose, warehouseID, onAddSuccess }) => {
     name: ""
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setNewProduct({
       ...newProduct,
       [e.target.name]: e.target.value

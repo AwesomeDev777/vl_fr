@@ -7,7 +7,7 @@ import apiCall from "utils/apiCall";
 import { Admin_Product_Edit, Admin_Product_GetOne } from "utils/adminUrl";
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 
-const EditProductModal = ({ onEditSuccess, productId }) => {
+const EditProductModal = ({ onEditSuccess, productId }: any) => {
   const [product, setProduct] = useState<IProduct>({
     code: "",
     bin_location: "",
@@ -23,7 +23,7 @@ const EditProductModal = ({ onEditSuccess, productId }) => {
   useEffect(() => {
     if (openAddModal) {
       (async function () {
-        const resp = await apiCall(
+        const resp: any = await apiCall(
           `${Admin_Product_GetOne}/${productId}`,
           "GET",
           {}
@@ -42,7 +42,7 @@ const EditProductModal = ({ onEditSuccess, productId }) => {
     }
   }, [openAddModal]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setProduct({
       ...product,
       [e.target.name]: e.target.value
@@ -121,9 +121,9 @@ const EditProductModal = ({ onEditSuccess, productId }) => {
               type="date"
               name="expiration_date"
               onChange={handleInputChange}
-              defaultValue={new Date(product.expiration_date)
+              defaultValue={product.expiration_date ? new Date(product.expiration_date)
                 .toISOString()
-                .substring(0, 10)}
+                .substring(0, 10) : ""}
             />
           </Form.Group>
           <Form.Group controlId="initial_stock_ID">

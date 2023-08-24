@@ -44,7 +44,7 @@ const ProductsTable: FC<IProductTable> = ({
     onChangeFilter(filter);
   }, [filter]);
 
-  const handleSort = (key) => {
+  const handleSort = (key: any) => {
     let sort = 1;
     if (key === sortKey.key) {
       if (sortKey.sort === -1) {
@@ -61,7 +61,7 @@ const ProductsTable: FC<IProductTable> = ({
     });
   };
 
-  const handleFilterChange = (e) => {
+  const handleFilterChange = (e: any) => {
     if (e.target.value === "") {
       setFilter({
         key: "",
@@ -75,7 +75,7 @@ const ProductsTable: FC<IProductTable> = ({
     }
   };
 
-  const handleDeleteProduct = (id) => {
+  const handleDeleteProduct = (id: string) => {
     swal
       .fire({
         title: "Are you sure?",

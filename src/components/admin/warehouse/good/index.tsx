@@ -10,12 +10,13 @@ import apiCall from "utils/apiCall";
 import { Admin_Good_GetAll } from "utils/adminUrl";
 import GoodsTable from "./GoodsTable";
 import AddGoodModal from "./AddGoodModal";
+import { any } from "prop-types";
 
 interface IGoods {
   warehouseID: string;
 }
 
-const Products: FC<IGoods> = ({ warehouseID }) => {
+const Goods: FC<IGoods> = ({ warehouseID }) => {
   const [openAddModal, setOpenAddModal] = useState<boolean>(false);
   const [activeLinkNumber, setActiveLinkNumber] = useState(1);
   const [paginationLength, setPaginationLength] = useState(10);
@@ -43,20 +44,20 @@ const Products: FC<IGoods> = ({ warehouseID }) => {
     setOpenAddModal(false);
   };
 
-  const handleChangeSort = (s) => {
+  const handleChangeSort = (s: any) => {
     setSortKey(s);
   };
 
-  const handleChangeFilter = (f) => {
+  const handleChangeFilter = (f: any) => {
     setFilter(f);
   };
 
-  const handleChangePageSize = (e) => {
+  const handleChangePageSize = (e: any) => {
     setPageSize(e.target.value);
   };
 
   const handleGetProducts = async () => {
-    const resp = await apiCall(
+    const resp: any = await apiCall(
       `${Admin_Good_GetAll}/${activeLinkNumber}/${pageSize}/filterKey:${filter.key}/filterValue:${filter.keyword}/sortKey:${sortKey.key}/sort:${sortKey.sort}`,
       "GET",
       {}
@@ -159,4 +160,4 @@ const Products: FC<IGoods> = ({ warehouseID }) => {
   );
 };
 
-export default Products;
+export default Goods;

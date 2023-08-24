@@ -11,7 +11,7 @@ import {
 } from "utils/adminUrl";
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
 
-const EditGoodModal = ({ onEditSuccess, goodId }) => {
+const EditGoodModal = ({ onEditSuccess, goodId }: any) => {
   const [good, setGood] = useState<IGood>({
     vendorName: "",
     deliveryDate: "",
@@ -26,12 +26,12 @@ const EditGoodModal = ({ onEditSuccess, goodId }) => {
     totalAmount: 0
   });
   const [openAddModal, setOpenAddModal] = useState(false);
-  const [warehouses, setWarehouses] = useState([]);
+  const [warehouses, setWarehouses] = useState<any[]>([]);
 
   useEffect(() => {
     if (openAddModal) {
       (async function () {
-        const resp = await apiCall(`${Admin_Good_GetOne}/${goodId}`, "GET", {});
+        const resp: any = await apiCall(`${Admin_Good_GetOne}/${goodId}`, "GET", {});
         setGood({
           vendorName: resp.vendorName,
           deliveryDate: resp.deliveryDate,
@@ -51,12 +51,12 @@ const EditGoodModal = ({ onEditSuccess, goodId }) => {
 
   useEffect(() => {
     (async function () {
-      const data = await apiCall(Admin_Warehouse_GetAll, "GET", {});
+      const data: any = await apiCall(Admin_Warehouse_GetAll, "GET", {});
       setWarehouses(data.all);
     })();
   }, []);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setGood({
       ...good,
       [e.target.name]: e.target.value

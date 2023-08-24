@@ -26,7 +26,7 @@ import {
 } from "utils/adminUrl";
 import isEmpty from "utils/is-empty";
 
-const ProductComponent = ({ warehouseName, warehouseID }) => {
+const ProductComponent = ({ warehouseName, warehouseID }: any) => {
   const [warehouse_ID, setWarehouse_ID] = React.useState<String>(warehouseID);
   const [warehouse_Name, setWarehouse_Name] =
     React.useState<String>(warehouseName);

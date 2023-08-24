@@ -37,7 +37,7 @@ const List = (props: any) => {
   const [warehouse_ID, setWarehouse_ID] = React.useState<String>("");
   const [warehouse_Name, setWarehouse_Name] = React.useState<String>("");
 
-  const [lists, setLists] = React.useState([]);
+  const [lists, setLists] = React.useState<any[]>([]);
 
   React.useEffect(() => {
     if (lists.length > 0 && warehouse_ID === "") {

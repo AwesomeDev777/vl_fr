@@ -21,9 +21,9 @@ import {
   Admin_GoodQuality_ADD
 } from "utils/adminUrl";
 
-const GoodDetail = ({ goodId }) => {
-  const [good, setGood] = useState({});
-  const [reports, setReports] = useState([]);
+const GoodDetail = ({ goodId }: any) => {
+  const [good, setGood] = useState<any>({});
+  const [reports, setReports] = useState<any[]>([]);
   const [showAddForm, setShowAddForm] = useState(false);
   const [qualityReport, setQualityReport] = useState({
     date: new Date().toISOString(),
@@ -31,7 +31,7 @@ const GoodDetail = ({ goodId }) => {
   });
 
   const getAllReports = async () => {
-    const reportsResp = await apiCall(
+    const reportsResp: any = await apiCall(
       `${Admin_GoodQuality_GetAll}/${goodId}`,
       "GET",
       {}
@@ -41,7 +41,7 @@ const GoodDetail = ({ goodId }) => {
 
   useEffect(() => {
     (async function () {
-      const resp = await apiCall(`${Admin_Good_GetOne}/${goodId}`, "GET", {});
+      const resp: any = await apiCall(`${Admin_Good_GetOne}/${goodId}`, "GET", {});
       setGood(resp);
       getAllReports();
     })();
@@ -51,7 +51,7 @@ const GoodDetail = ({ goodId }) => {
     setShowAddForm(!showAddForm);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setQualityReport({
       ...qualityReport,
       [e.target.name]: e.target.value

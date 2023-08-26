@@ -18,6 +18,7 @@ export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLElement>, 
 	onSelect?: AccordionSelectCallback
 	flush?: boolean
 	alwaysOpen?: boolean
+	as: React.ElementType
 }
 
 const propTypes = {
@@ -79,7 +80,7 @@ const Accordion: BsPrefixRefForwardingComponent<'div', AccordionProps> = React.f
 )
 
 Accordion.displayName = 'Accordion'
-Accordion.propTypes = propTypes
+// Accordion.propTypes = propTypes
 
 export default Object.assign(Accordion, {
 	Button: AccordionButton,

@@ -1,7 +1,7 @@
 import nookies from "nookies";
 import type { NextPageContext } from "next";
 import { Admin_Verify } from "utils/adminUrl";
-import apiCall from "utils/apiCall";
+import axios from "axios";
 
 const authVerifyCookie = async (ctx: NextPageContext) => {
   // Get cookies from context
@@ -11,12 +11,16 @@ const authVerifyCookie = async (ctx: NextPageContext) => {
     return false;
   } else {
     // // Get absolute origin url
-    const data = await apiCall(Admin_Verify, "GET", {});
+    const resp = await axios({
+      url: Admin_Verify,
+      method: "GET",
+      headers
+    })
 
-    if (!data || data == "Unauthorized") {
+    if (!resp.data || resp.data == "Unauthorized") {
       return false;
     }
-    return data;
+    return resp.data;
   }
 };
 

@@ -22,7 +22,7 @@ export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLElement>, 
 
 const propTypes = {
 	/** Set a custom element for this component */
-	as: PropTypes.element,
+	as: React.Component,
 
 	/** @default 'accordion' */
 	bsPrefix: PropTypes.string,

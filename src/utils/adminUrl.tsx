@@ -1,4 +1,4 @@
-const API = "http://localhost:5000";
+const API = "https://vl-b.onrender.com";
 
 export const Admin_Sign_in = API + "/admin/login";
 export const Admin_Verify = API + "/admin/current";

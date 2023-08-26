@@ -106,7 +106,7 @@ export const Admin_Warehouse_Delete = API + "/admin/warehouse";
 export const Admin_Warehouse_GetOne = API + "/admin/warehouse";
 export const Admin_Warehouse_GetAll = API + "/admin/warehouse";
 
-export const Admin_Product_ADD = API + "/admin/good/";
+export const Admin_Product_ADD = API + "/admin/product/";
 export const Admin_Product_Edit = API + "/admin/product";
 export const Admin_Product_Delete = API + "/admin/product";
 export const Admin_Product_GetOne = API + "/admin/product";

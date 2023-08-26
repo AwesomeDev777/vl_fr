@@ -8,7 +8,7 @@ import {Admin_Client_Field_GetAll, Admin_Client_Field_Delete, Admin_Client_Field
 import { parseCookies } from 'nookies'
 const isEmpty = require('utils/is-empty')
 
-const getALLComponent = () => {
+const GetAllComponent = () => {
 
     const router = useRouter();
 
@@ -172,4 +172,4 @@ const getALLComponent = () => {
 
 
 
-export default getALLComponent
+export default GetAllComponent

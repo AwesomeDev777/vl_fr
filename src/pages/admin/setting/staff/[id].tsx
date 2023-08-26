@@ -10,7 +10,7 @@ const ViewPage: ExtendedNextPage = () => {
 	const ViewComponenet = () => {
 		if(id !== undefined)
 		{
-			return (<View id = {useRouter().query.id} />)
+			return (<View id = {router.query.id} />)
 		}
 		return (<p></p>)
 	}

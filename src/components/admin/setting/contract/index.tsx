@@ -8,7 +8,7 @@ import {Admin_Contract_Type_GetAll, Admin_Contract_Type_Delete} from 'utils/admi
 import { parseCookies } from 'nookies'
 const isEmpty = require('utils/is-empty')
 
-const getALLComponent = () => {
+const GetALLComponent = () => {
 
     const router = useRouter();
 
@@ -150,4 +150,4 @@ const getALLComponent = () => {
 
 
 
-export default getALLComponent
+export default GetALLComponent

@@ -8,7 +8,7 @@ import {Admin_Accounting_Transfer_GetAll, Admin_Accounting_Transfer_Delete} from
 import { parseCookies } from 'nookies'
 const isEmpty = require('utils/is-empty')
 
-const getALLComponent = () => {
+const GetAllComponent = () => {
 
     const router = useRouter();
 
@@ -163,4 +163,4 @@ const getALLComponent = () => {
 
 
 
-export default getALLComponent
+export default GetAllComponent

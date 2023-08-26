@@ -8,7 +8,7 @@ import {Admin_Payment_Mode_GetAll, Admin_Payment_Mode_Delete, Admin_Payment_Mode
 import { parseCookies } from 'nookies'
 const isEmpty = require('utils/is-empty')
 
-const getALLComponent = () => {
+const GetALLComponent = () => {
 
     const router = useRouter();
 
@@ -177,4 +177,4 @@ const getALLComponent = () => {
 
 
 
-export default getALLComponent
+export default GetALLComponent

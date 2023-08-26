@@ -11,7 +11,7 @@ import { faBank } from '@fortawesome/free-solid-svg-icons';
 import { faSalesforce } from '@fortawesome/free-brands-svg-icons';
 const isEmpty = require('utils/is-empty')
 
-const getALLComponent = () => {
+const GetAllComponent = () => {
 
     const router = useRouter();
 
@@ -203,4 +203,4 @@ const getALLComponent = () => {
 
 
 
-export default getALLComponent
+export default GetAllComponent

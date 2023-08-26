@@ -8,7 +8,7 @@ import {Admin_Currency_GetAll, Admin_Currency_Delete, Admin_Currency_Default} fr
 import { parseCookies } from 'nookies'
 const isEmpty = require('utils/is-empty')
 
-const getALLComponent = () => {
+const GetALLComponent = () => {
 
     const router = useRouter();
 
@@ -181,4 +181,4 @@ const getALLComponent = () => {
 
 
 
-export default getALLComponent
+export default GetALLComponent

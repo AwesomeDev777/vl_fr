@@ -95,7 +95,8 @@ const Widget34ComponentChart: React.FC<Widget34ComponentChartProps> = (props) =>
 
 	return (
 		<Widget11 bottom>
-			<></> // <Chart type="area" width="100%" height={200} options={options} series={props.series} />
+			<></> 
+			{/* <Chart type="area" width="100%" height={200} options={options} series={props.series} /> */}
 		</Widget11>
 	)
 }

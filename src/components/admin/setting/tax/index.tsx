@@ -8,7 +8,7 @@ import {Admin_Tax_GetAll, Admin_Tax_Delete} from 'utils/adminUrl'
 import { parseCookies } from 'nookies'
 const isEmpty = require('utils/is-empty')
 
-const getALLComponent = () => {
+const GetALLComponent = () => {
 
     const router = useRouter();
 
@@ -164,4 +164,4 @@ const getALLComponent = () => {
 
 
 
-export default getALLComponent
+export default GetALLComponent

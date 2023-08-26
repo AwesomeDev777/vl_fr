@@ -18,7 +18,7 @@ export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLElement>, 
 	onSelect?: AccordionSelectCallback
 	flush?: boolean
 	alwaysOpen?: boolean
-	as: React.ElementType
+	as?: React.ElementType
 }
 
 const propTypes = {

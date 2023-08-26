@@ -13,9 +13,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import Router from 'next/router'
 import PAGE from 'config/page.config'
 import { swal } from 'components/sweetalert2/instance'
-const isEmpty = require('utils/is-empty')
+import isEmpty from 'utils/is-empty'
+import apiCall from 'utils/apiCall'
+import { Admin_Sign_up } from 'utils/adminUrl'
 
-const Adminlogin: ExtendedNextPage = () => {
+const AdminRegister: ExtendedNextPage = () => {
 	return (
 		<Row className="g-0 align-items-center justify-content-center h-100">
 			<Col sm={8} md={6} lg={4} xl={3}>
@@ -29,7 +31,7 @@ const Adminlogin: ExtendedNextPage = () => {
 							</Widget12>
 							{/* END Avatar */}
 						</div>
-						<AdminloginForm />
+						<AdminRegisterForm />
 					</Portlet.Body>
 				</Portlet>
 				{/* END Portlet */}
@@ -40,45 +42,86 @@ const Adminlogin: ExtendedNextPage = () => {
 
 // Form validation schema
 const validationSchema = yup.object().shape({
+  firstname: yup.string().required("First Name field must be required"),
+  lastname: yup.string().required("Last Name field must be required"),
 	email: yup.string().email('Your email is not valid').required('Please enter your email'),
 	password: yup.string().min(6, 'Please enter at least 6 characters').required('Please provide your password'),
-	remember: yup.boolean(),
+	passwordConfirm: yup.string().min(6, 'Please enter at least 6 characters').required('Please provide your password'),
 })
 
-const AdminloginForm = () => {
+const AdminRegisterForm = () => {
 	const dispatch = useDispatch()
 	
 	const errors = useSelector((state: any) => state.errors.errors)
-	const isAuthenticated = useSelector((state: any) => state.auth.isAuthenticated)
 	React.useEffect(() => {
 		if(!isEmpty(errors)){
 			swal.fire({ text: errors, icon: 'error' })
 		}
 	}, [errors])
 
-	React.useEffect(() => {
-		Router.push(PAGE.AdminhomePagePath)
-	}, [isAuthenticated])
-	
 	// Initialize form validation with react-hook-form
 	const { control, handleSubmit } = useForm<AdminloginFormInputs>({
 		resolver: yupResolver(validationSchema),
 		defaultValues: {
+			firstname: '',
+			lastname: '',
 			email: '',
 			password: '',
-			remember: false,
+			passwordConfirm: '',
 		},
 	})
 
 	// Function to handle form submission
 	const onSubmit = async (formData: AdminloginFormInputs) => {
-		await dispatch(loginUser(formData))
+    await apiCall(Admin_Sign_up, "POST", formData);
 		
-		Router.push(PAGE.AdminhomePagePath)
+		Router.push(PAGE.AdminloginPagePath)
 	}
 
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)} className="d-grid gap-3">
+      {/* BEGIN Validation Controller */}
+			<Controller
+				name="firstname"
+				control={control}
+				render={({ field, fieldState: { invalid, error } }) => (
+					<Form.Group controlId="firstname">
+						<Form.Floating>
+							<Form.Control
+								type="text"
+								size="lg"
+								placeholder="Please insert your First name"
+								isInvalid={invalid}
+								{...field}
+							/>
+							<Form.Label>First Name</Form.Label>
+							{invalid && <Form.Control.Feedback type="invalid">{error?.message}</Form.Control.Feedback>}
+						</Form.Floating>
+					</Form.Group>
+				)}
+			/>
+			{/* END Validation Controller */}
+      {/* BEGIN Validation Controller */}
+			<Controller
+				name="lastname"
+				control={control}
+				render={({ field, fieldState: { invalid, error } }) => (
+					<Form.Group controlId="lastname">
+						<Form.Floating>
+							<Form.Control
+								type="text"
+								size="lg"
+								placeholder="Please insert your Last name"
+								isInvalid={invalid}
+								{...field}
+							/>
+							<Form.Label>Last Name</Form.Label>
+							{invalid && <Form.Control.Feedback type="invalid">{error?.message}</Form.Control.Feedback>}
+						</Form.Floating>
+					</Form.Group>
+				)}
+			/>
+			{/* END Validation Controller */}
 			{/* BEGIN Validation Controller */}
 			<Controller
 				name="email"
@@ -121,27 +164,37 @@ const AdminloginForm = () => {
 				)}
 			/>
 			{/* END Validation Controller */}
-			{/* BEGIN Flex */}
-			<div className="d-flex align-items-center justify-content-between">
-				{/* BEGIN Validation Controller */}
-				<Controller
-					name="remember"
-					control={control}
-					render={({ field: { value, ...field }, fieldState: { invalid } }) => (
-						<Form.Switch id="remember" label="Remember me" {...field} isInvalid={invalid} checked={value} />
-					)}
-				/>
-				{/* BEGIN Validation Controller */}
-				<Link href="#">Forgot password?</Link>
-			</div>
-			{/* END Flex */}
+
+      {/* BEGIN Validation Controller */}
+			<Controller
+				name="passwordConfirm"
+				control={control}
+				render={({ field, fieldState: { invalid, error } }) => (
+					<Form.Group controlId="password">
+						<Form.Floating>
+							<Form.Control
+								type="password"
+								size="lg"
+								placeholder="Please insert your password"
+								isInvalid={invalid}
+								{...field}
+							/>
+							<Form.Label>Password</Form.Label>
+							{invalid && <Form.Control.Feedback type="invalid">{error?.message}</Form.Control.Feedback>}
+						</Form.Floating>
+					</Form.Group>
+				)}
+			/>
+			{/* END Validation Controller */}
+			
+			
 			{/* BEGIN Flex */}
 			<div className="d-flex align-items-center justify-content-between">
 				<span>
-					Don&apos;t have an account? <Link href="/admin/register">Register</Link>
+					Already have an account? <Link href="/admin/login">Login</Link>
 				</span>
 				<Button type="submit" variant="label-primary" size="lg" width="widest">
-					Login
+					Register
 				</Button>
 			</div>
 			{/* END Flex */}
@@ -150,12 +203,14 @@ const AdminloginForm = () => {
 }
 
 interface AdminloginFormInputs {
+	firstname: string
+	lastname: string
 	email: string
 	password: string
-	remember: boolean
+  passwordConfirm: string
 }
 
-Adminlogin.pageTitle = 'AdminLogin'
-Adminlogin.layoutName = 'blank'
+AdminRegister.pageTitle = 'AdminRegister'
+AdminRegister.layoutName = 'blank'
 
-export default withAdminGuest(Adminlogin)
+export default withAdminGuest(AdminRegister)

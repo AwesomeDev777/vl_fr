@@ -1,6 +1,7 @@
 const API = "https://vl-b.onrender.com";
 
 export const Admin_Sign_in = API + "/admin/login";
+export const Admin_Sign_up = API + "/admin/signup";
 export const Admin_Verify = API + "/admin/current";
 
 export const Admin_Role_ADD = API + "/admin/role/";

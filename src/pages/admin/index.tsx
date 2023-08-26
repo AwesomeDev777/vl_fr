@@ -18,7 +18,7 @@ const DashboardPage: ExtendedNextPage = () => {
 			</Row>
 			<Row>
 				<Col md = "8">
-					<Widget2 />
+					{/* <Widget2 /> */}
 					<Row>
 						<Col>
 							<Widget3/>

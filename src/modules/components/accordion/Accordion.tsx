@@ -22,7 +22,7 @@ export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLElement>, 
 
 const propTypes = {
 	/** Set a custom element for this component */
-	as: React.Component,
+	as: React.Fragment,
 
 	/** @default 'accordion' */
 	bsPrefix: PropTypes.string,
@@ -66,16 +66,16 @@ const Accordion: BsPrefixRefForwardingComponent<'div', AccordionProps> = React.f
 			[activeKey, onSelect, alwaysOpen]
 		)
 
-		return (
-			<AccordionContext.Provider value={contextValue}>
-				<Component
-					ref={ref}
-					{...controlledProps}
-					className={classNames(className, prefix, flush && `${prefix}-flush`)}
-				/>
-			</AccordionContext.Provider>
-		)
-	}
+			return (
+				<AccordionContext.Provider value={contextValue}>
+					<Component
+						ref={ref}
+						{...controlledProps}
+						className={classNames(className, prefix, flush && `${prefix}-flush`)}
+					/>
+				</AccordionContext.Provider>
+			)
+		}
 )
 
 Accordion.displayName = 'Accordion'

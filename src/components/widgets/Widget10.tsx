@@ -146,7 +146,7 @@ const Widget10Component = () => {
 				</Portlet.Icon>
 				<Portlet.Title>Employee salary</Portlet.Title>
 			</Portlet.Header>
-			<Carousel
+			{/* <Carousel
 				centerMode
 				slidesToShow={1}
 				slidesToScroll={1}
@@ -154,32 +154,32 @@ const Widget10Component = () => {
 				asNavFor={mainCarousel.current}
 				className="my-3"
 				ref={navCarousel}
-			>
-				{list.map((data) => (
-					<CarouselItem key={data.key}>
+			> */}
+				{/* {list.map((data) => ( */}
+					{/* <CarouselItem key={data.key}> */}
 						{/* BEGIN Widget */}
-						<Widget6>
-							<Widget6.Title>{data.job}</Widget6.Title>
-							<Widget6.Subtitle>{data.office}</Widget6.Subtitle>
-						</Widget6>
+						{/* <Widget6> */}
+							{/* <Widget6.Title>{data.job}</Widget6.Title> */}
+							{/* <Widget6.Subtitle>{data.office}</Widget6.Subtitle> */}
+						{/* </Widget6> */}
 						{/* END Widget */}
-					</CarouselItem>
-				))}
-			</Carousel>
-			<Portlet.Body>
+					{/* </CarouselItem> */}
+				{/* ))} */}
+			{/* </Carousel> */}
+			{/* <Portlet.Body>
 				<Carousel slidesToShow={1} slidesToScroll={1} arrows={false} asNavFor={navCarousel.current} ref={mainCarousel}>
 					{list.map((data) => (
 						<CarouselItem key={data.key}>
 							<RichList>
 								{data.employees.map((employee, index) => (
 									<RichList.Item key={index}>
-										<RichList.Addon addonType="prepend">
+										<RichList.Addon addonType="prepend"> */}
 											{/* BEGIN Avatar */}
-											<Avatar display>
+											{/* <Avatar display>
 												<Image src={employee.image} layout="fill" alt="Avatar image" />
-											</Avatar>
+											</Avatar> */}
 											{/* END Avatar */}
-										</RichList.Addon>
+										{/* </RichList.Addon>
 										<RichList.Content>
 											<RichList.Title>{employee.name}</RichList.Title>
 											<RichList.Subtitle>{employee.earning}</RichList.Subtitle>
@@ -195,7 +195,7 @@ const Widget10Component = () => {
 						</CarouselItem>
 					))}
 				</Carousel>
-			</Portlet.Body>
+			</Portlet.Body> */}
 		</Portlet>
 	)
 }

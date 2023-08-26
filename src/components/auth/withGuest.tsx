@@ -5,7 +5,7 @@ import PAGE from 'config/page.config'
 import type { AdditionalNextPageProps, ExtendedNextPage } from '@blueupcode/components/types'
 import type { NextPageContext } from 'next'
 
-const withGuest = (PageComponent: ExtendedNextPage) => {
+const withGuest = (PageComponent: any) => {
 	// Initialize wrapper component
 	const WrapperComponent: ExtendedNextPage = (props) => {
 		return <PageComponent {...props} />
